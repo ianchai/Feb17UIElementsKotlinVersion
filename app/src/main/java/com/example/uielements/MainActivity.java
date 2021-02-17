@@ -32,8 +32,7 @@ public class MainActivity extends AppCompatActivity {
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                int checkRadio = radioGroup.getCheckedRadioButtonId();
-                switch(checkRadio){
+                switch(i){
                     case R.id.red:
                         Toast.makeText(MainActivity.this,"Red selected", Toast.LENGTH_SHORT).show(); break;
                     case R.id.green:
