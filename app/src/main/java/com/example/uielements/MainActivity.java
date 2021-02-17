@@ -35,11 +35,11 @@ public class MainActivity extends AppCompatActivity {
                 int checkRadio = radioGroup.getCheckedRadioButtonId();
                 switch(checkRadio){
                     case R.id.red:
-                        Toast.makeText(this,"Red selected", Toast.LENGTH_SHORT).show(); break;
+                        Toast.makeText(MainActivity.this,"Red selected", Toast.LENGTH_SHORT).show(); break;
                     case R.id.green:
-                        Toast.makeText(this,"Green selected", Toast.LENGTH_SHORT).show(); break;
+                        Toast.makeText(MainActivity.this,"Green selected", Toast.LENGTH_SHORT).show(); break;
                     case R.id.orange:
-                        Toast.makeText(this,"Orange selected", Toast.LENGTH_SHORT).show(); break;
+                        Toast.makeText(MainActivity.this,"Orange selected", Toast.LENGTH_SHORT).show(); break;
                 }
             }
         });
