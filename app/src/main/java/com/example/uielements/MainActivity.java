@@ -3,6 +3,7 @@ package com.example.uielements;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ProgressBar;
@@ -28,20 +29,6 @@ public class MainActivity extends AppCompatActivity {
         radioGroup=findViewById(R.id.radgrp);
 
         progressBar=findViewById(R.id.progressBar);
-
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                switch(i){
-                    case R.id.red:
-                        Toast.makeText(MainActivity.this,"Red selected", Toast.LENGTH_SHORT).show(); break;
-                    case R.id.green:
-                        Toast.makeText(MainActivity.this,"Green selected", Toast.LENGTH_SHORT).show(); break;
-                    case R.id.orange:
-                        Toast.makeText(MainActivity.this,"Orange selected", Toast.LENGTH_SHORT).show(); break;
-                }
-            }
-        });
 
         cGodFather.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -72,5 +59,29 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "You have NOT selected The Matrix",Toast.LENGTH_SHORT).show();
             }
         });
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                switch(i){
+                    case R.id.red:
+                        Toast.makeText(MainActivity.this,"Red selected", Toast.LENGTH_SHORT).show(); break;
+                    case R.id.green:
+                        Toast.makeText(MainActivity.this,"Green selected", Toast.LENGTH_SHORT).show(); break;
+                    case R.id.orange:
+                        Toast.makeText(MainActivity.this,"Orange selected", Toast.LENGTH_SHORT).show(); break;
+                }
+            }
+        });
+
+        Thread thread = new Thread(  new Runnable() {
+            @Override
+            public void run()
+            {   for (int i=0; i<10; i++)
+                    progressBar.incrementProgressBy(10);
+                SystemClock.sleep(2000);
+            }
+        });
+        thread.start();
     }
 }
