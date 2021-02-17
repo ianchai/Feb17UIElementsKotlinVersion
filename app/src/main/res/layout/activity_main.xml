@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Pulp Fiction"
+        android:text="@string/pulp_fiction"
         app:layout_constraintEnd_toStartOf="@+id/matrix"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/godfather"
@@ -21,7 +21,7 @@
         android:id="@+id/godfather"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="The Godfather"
+        android:text="@string/the_godfather"
         app:layout_constraintBaseline_toBaselineOf="@+id/pulp"
         app:layout_constraintEnd_toStartOf="@+id/pulp"
         app:layout_constraintHorizontal_bias="0.5"
@@ -31,7 +31,7 @@
         android:id="@+id/matrix"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="The Matrix"
+        android:text="@string/the_matrix"
         app:layout_constraintBaseline_toBaselineOf="@+id/pulp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -52,21 +52,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="Orange" />
+            android:text="@string/orange" />
 
         <RadioButton
             android:id="@+id/red"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="Red" />
+            android:text="@string/red" />
 
         <RadioButton
             android:id="@+id/green"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="Green" />
+            android:text="@string/green" />
     </RadioGroup>
 
     <ProgressBar

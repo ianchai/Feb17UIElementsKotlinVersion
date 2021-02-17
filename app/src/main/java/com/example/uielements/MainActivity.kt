@@ -19,10 +19,10 @@ class MainActivity : AppCompatActivity() {
         cMatrix = findViewById(R.id.matrix)
         radioGroup = findViewById(R.id.radgrp)
         progressBar = findViewById(R.id.progressBar)
-        cGodFather.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { compoundButton, b -> if (cGodFather.isChecked()) Toast.makeText(this@MainActivity, "You have selected The Godfather", Toast.LENGTH_SHORT).show() else Toast.makeText(this@MainActivity, "You have NOT selected The Godfather", Toast.LENGTH_SHORT).show() })
-        cPulp.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { compoundButton, b -> if (cPulp.isChecked()) Toast.makeText(this@MainActivity, "You have selected Pulp Fiction", Toast.LENGTH_SHORT).show() else Toast.makeText(this@MainActivity, "You have NOT selected Pulp Fiction", Toast.LENGTH_SHORT).show() })
-        cMatrix.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { compoundButton, b -> if (cMatrix.isChecked()) Toast.makeText(this@MainActivity, "You have selected The Matrix", Toast.LENGTH_SHORT).show() else Toast.makeText(this@MainActivity, "You have NOT selected The Matrix", Toast.LENGTH_SHORT).show() })
-        radioGroup.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { radioGroup, i ->
+        cGodFather.setOnCheckedChangeListener({ compoundButton, b -> if (cGodFather.isChecked) Toast.makeText(this@MainActivity, "You have selected The Godfather", Toast.LENGTH_SHORT).show() else Toast.makeText(this@MainActivity, "You have NOT selected The Godfather", Toast.LENGTH_SHORT).show() })
+        cPulp.setOnCheckedChangeListener({ compoundButton, b -> if (cPulp.isChecked) Toast.makeText(this@MainActivity, "You have selected Pulp Fiction", Toast.LENGTH_SHORT).show() else Toast.makeText(this@MainActivity, "You have NOT selected Pulp Fiction", Toast.LENGTH_SHORT).show() })
+        cMatrix.setOnCheckedChangeListener({ compoundButton, b -> if (cMatrix.isChecked) Toast.makeText(this@MainActivity, "You have selected The Matrix", Toast.LENGTH_SHORT).show() else Toast.makeText(this@MainActivity, "You have NOT selected The Matrix", Toast.LENGTH_SHORT).show() })
+        radioGroup.setOnCheckedChangeListener({ radioGroup, i ->
             when (i) {
                 R.id.red -> Toast.makeText(this@MainActivity, "Red selected", Toast.LENGTH_SHORT).show()
                 R.id.green -> Toast.makeText(this@MainActivity, "Green selected", Toast.LENGTH_SHORT).show()

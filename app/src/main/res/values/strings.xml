@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">UIelements</string>
+    <string name="pulp_fiction">Pulp Fiction</string>
+    <string name="the_godfather">The Godfather</string>
+    <string name="the_matrix">The Matrix</string>
+    <string name="orange">Orange</string>
+    <string name="red">Red</string>
+    <string name="green">Green</string>
 </resources>
