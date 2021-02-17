@@ -29,6 +29,21 @@ public class MainActivity extends AppCompatActivity {
 
         progressBar=findViewById(R.id.progressBar);
 
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                int checkRadio = radioGroup.getCheckedRadioButtonId();
+                switch(checkRadio){
+                    case R.id.red:
+                        Toast.makeText(this,"Red selected", Toast.LENGTH_SHORT).show(); break;
+                    case R.id.green:
+                        Toast.makeText(this,"Green selected", Toast.LENGTH_SHORT).show(); break;
+                    case R.id.orange:
+                        Toast.makeText(this,"Orange selected", Toast.LENGTH_SHORT).show(); break;
+                }
+            }
+        });
+
         cGodFather.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
