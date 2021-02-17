@@ -1,88 +1,40 @@
-package com.example.uielements;
+package com.example.uielements
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle
+import android.os.SystemClock
+import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 
-import android.os.Bundle;
-import android.os.SystemClock;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.ProgressBar;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.Toast;
-
-public class MainActivity extends AppCompatActivity {
-
-    private CheckBox cGodFather, cPulp, cMatrix;
-    private RadioGroup radioGroup;
-    private ProgressBar progressBar;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        cGodFather=findViewById(R.id.godfather);
-        cPulp=findViewById(R.id.pulp);
-        cMatrix=findViewById(R.id.matrix);
-
-        radioGroup=findViewById(R.id.radgrp);
-
-        progressBar=findViewById(R.id.progressBar);
-
-        cGodFather.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (cGodFather.isChecked())
-                    Toast.makeText(MainActivity.this, "You have selected The Godfather",Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(MainActivity.this, "You have NOT selected The Godfather",Toast.LENGTH_SHORT).show();
+class MainActivity : AppCompatActivity() {
+    private lateinit var cGodFather: CheckBox
+    private lateinit var cPulp: CheckBox
+    private lateinit var cMatrix: CheckBox
+    private lateinit var radioGroup: RadioGroup
+    private lateinit var progressBar: ProgressBar
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        cGodFather = findViewById(R.id.godfather)
+        cPulp = findViewById(R.id.pulp)
+        cMatrix = findViewById(R.id.matrix)
+        radioGroup = findViewById(R.id.radgrp)
+        progressBar = findViewById(R.id.progressBar)
+        cGodFather.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { compoundButton, b -> if (cGodFather.isChecked()) Toast.makeText(this@MainActivity, "You have selected The Godfather", Toast.LENGTH_SHORT).show() else Toast.makeText(this@MainActivity, "You have NOT selected The Godfather", Toast.LENGTH_SHORT).show() })
+        cPulp.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { compoundButton, b -> if (cPulp.isChecked()) Toast.makeText(this@MainActivity, "You have selected Pulp Fiction", Toast.LENGTH_SHORT).show() else Toast.makeText(this@MainActivity, "You have NOT selected Pulp Fiction", Toast.LENGTH_SHORT).show() })
+        cMatrix.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { compoundButton, b -> if (cMatrix.isChecked()) Toast.makeText(this@MainActivity, "You have selected The Matrix", Toast.LENGTH_SHORT).show() else Toast.makeText(this@MainActivity, "You have NOT selected The Matrix", Toast.LENGTH_SHORT).show() })
+        radioGroup.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { radioGroup, i ->
+            when (i) {
+                R.id.red -> Toast.makeText(this@MainActivity, "Red selected", Toast.LENGTH_SHORT).show()
+                R.id.green -> Toast.makeText(this@MainActivity, "Green selected", Toast.LENGTH_SHORT).show()
+                R.id.orange -> Toast.makeText(this@MainActivity, "Orange selected", Toast.LENGTH_SHORT).show()
             }
-        });
-
-        cPulp.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (cPulp.isChecked())
-                    Toast.makeText(MainActivity.this, "You have selected Pulp Fiction",Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(MainActivity.this, "You have NOT selected Pulp Fiction",Toast.LENGTH_SHORT).show();
+        })
+        val thread = Thread {
+            for (i in 0..9) {
+                progressBar.incrementProgressBy(10)
+                SystemClock.sleep(2000)
             }
-        });
-
-        cMatrix.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (cMatrix.isChecked())
-                    Toast.makeText(MainActivity.this, "You have selected The Matrix",Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(MainActivity.this, "You have NOT selected The Matrix",Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                switch(i){
-                    case R.id.red:
-                        Toast.makeText(MainActivity.this,"Red selected", Toast.LENGTH_SHORT).show(); break;
-                    case R.id.green:
-                        Toast.makeText(MainActivity.this,"Green selected", Toast.LENGTH_SHORT).show(); break;
-                    case R.id.orange:
-                        Toast.makeText(MainActivity.this,"Orange selected", Toast.LENGTH_SHORT).show(); break;
-                }
-            }
-        });
-
-        Thread thread = new Thread(  new Runnable() {
-            @Override
-            public void run()
-            {   for (int i=0; i<10; i++) {
-                    progressBar.incrementProgressBy(10);
-                    SystemClock.sleep(2000);
-                }
-            }
-        });
-        thread.start();
+        }
+        thread.start()
     }
 }
